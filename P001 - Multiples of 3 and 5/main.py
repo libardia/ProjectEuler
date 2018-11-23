@@ -21,9 +21,10 @@ target = int(input("Sum multiples of 3 and 5 less than: "))
 
 start = time.clock()
 
-a = (target - 1) // 3
-b = (target - 1) // 5
-c = (target - 1) // 15
+n = (target - 1)
+a = n // 3
+b = n // 5
+c = n // 15
 
 total = (3*a*(a+1) + 5*b*(b+1) - 15*c*(c+1)) // 2
 
