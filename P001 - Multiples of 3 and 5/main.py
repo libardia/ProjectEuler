@@ -9,9 +9,11 @@
 #   233168
 # ======================================================================================================================
 # NOTES:
-#   This was an attempt to only add numbers that I was sure fit the pattern. It's very specific unfortunately and I have
-#   since read the overview and they have a much more elegant and efficient version of this solution. Damn. But I'm sure
-#   that will be the case will all problems.
+#   Taking advantage of the fact that the sum of all integers up to n is n(n+1)/2, and therefore m * n(n+1)/2 is the sum
+#   of the first n multiples of m, we can take all the multiples of 3 up to our target, add all the multiples of 5 up to
+#   our target, and subtract all the multiples of 15 up to our target (because they have been counted twice). "//" is
+#   used to perform floor() in the same step as the division and also to keep the values integers as opposed to floats.
+#   This is now O(1) for all inputs.
 # ======================================================================================================================
 import time
 
@@ -19,18 +21,13 @@ target = int(input("Sum multiples of 3 and 5 less than: "))
 
 start = time.clock()
 
-total = 0
-current = 0
+a = (target - 1) // 3
+b = (target - 1) // 5
+c = (target - 1) // 15
 
-steps = [3, 2, 1, 3, 1, 2, 3]
-istep = 0
-
-while current < target:
-    total += current
-    current += steps[istep]
-    istep = (istep + 1) % len(steps)
+total = (3*a*(a+1) + 5*b*(b+1) - 15*c*(c+1)) // 2
 
 end = time.clock()
 
-print("Total of all multiples of 3 and 5 less than {} is {}".format(target, total))
-print("\nThat took {:.7f} seconds.".format(end-start))
+print(f"Total of all multiples of 3 and 5 less than {target} is {total}")
+print(f"\nThat took {end-start:.7f} seconds.")

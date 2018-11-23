@@ -25,5 +25,5 @@ start = time.clock()
 
 end = time.clock()
 
-print("")
-print("\nThat took {:.7f} seconds.".format(end-start))
+print(f"")
+print(f"\nThat took {end-start:.7f} seconds.")
