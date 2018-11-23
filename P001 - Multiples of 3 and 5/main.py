@@ -12,8 +12,8 @@
 #   Taking advantage of the fact that the sum of all integers up to n is n(n+1)/2, and therefore m * n(n+1)/2 is the sum
 #   of the first n multiples of m, we can take all the multiples of 3 up to our target, add all the multiples of 5 up to
 #   our target, and subtract all the multiples of 15 up to our target (because they have been counted twice). "//" is
-#   used to perform floor() in the same step as the division and also to keep the values integers as opposed to floats.
-#   This is now O(1) for all inputs.
+#   used to perform floor() in the same step as the division and also to keep the values as integers as opposed to
+#   floats. This is now O(1) for all inputs.
 # ======================================================================================================================
 import time
 
